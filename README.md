@@ -31,7 +31,7 @@ A shell condition is a predicate, not a job. If the command changes the system, 
 ## Install
 
 ```bash
-pi install git:github.com/joelhooks/pi-until@main
+pi install git:github.com/syxc/pi-until@main
 ```
 
 Then restart Pi or run `/reload`.
@@ -39,8 +39,14 @@ Then restart Pi or run `/reload`.
 For local development:
 
 ```bash
-pi install /Users/joel/Code/joelhooks/pi-until
+pi install /path/to/pi-until
 ```
+
+### Why this fork
+
+Upstream pins a build toolchain through `devEngines` (`npm@11.16.0`, `node >=24.18.0`, `onFail: "error"`). npm 11 treats that as a **hard error**: on any environment running another version (e.g. npm 11.18.0 / node 24.14.0), `npm install` fails with `EBADDEVENGINES` and the whole install is aborted. There is no official npm config to disable that check.
+
+This fork removes the whole `devEngines` field, so the extension installs with any npm/node version. Reinstall as usual (`pi install git:github.com/syxc/pi-until@main`) to pick up this fix.
 
 ## Agent tool
 
