@@ -70,18 +70,6 @@
       "optional": true
     }
   },
-  "devEngines": {
-    "packageManager": {
-      "name": "npm",
-      "version": "11.16.0",
-      "onFail": "error"
-    },
-    "runtime": {
-      "name": "node",
-      "version": ">=24.18.0 <25",
-      "onFail": "error"
-    }
-  },
   "engines": {
     "node": ">=24.18.0 <25",
     "npm": ">=11.16.0 <12"
